@@ -1,0 +1,16 @@
+[general]
+name=NuPrGvtres
+version=0.0.1
+author=Odycloud
+email=arturo@odyhpc.com
+description=GUI for Numerical Predictions on Graviton3
+about=NuPrGvtres
+
+homepage=https://odyhpc.com
+###repository=https://odyhpc.com
+###tracker=https://odyhpc.com
+
+tags=NWP, Air Quality Modeling, WRF, WPS, GIS, NetCDF, CMAQ
+###icon=plugin/resources/QGIS_logo64.png
+
+qgisMinimumVersion=3.0
