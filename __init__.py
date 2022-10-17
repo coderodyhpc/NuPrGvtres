@@ -5,13 +5,14 @@
 #cython: language_level=3
 import sys
 sys.path.append('/opt/Odycloud/NumPre_Gv3')
+sys.path.append('/opt/Odycloud/NumPre_Gv3/plugin')
 
 def classFactory(iface):
     """Load QGISPlugin class.
     """
 ###    from NumPre_Gv3.plugin.constants import PLUGIN_NAME
 ###    from NumPre_Gv3.plugin.ui.helpers import WaitDialog
-    import bibliotheca
+    import mainPlugi
   
     title = iface.mainWindow().windowTitle()
     new_title = title.replace('QGIS', 'Gv3 Graphical Interface')
