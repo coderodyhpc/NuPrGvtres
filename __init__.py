@@ -12,7 +12,7 @@ def classFactory(iface):
     """
 ###    from NumPre_Gv3.plugin.constants import PLUGIN_NAME
 ###    from NumPre_Gv3.plugin.ui.helpers import WaitDialog
-    import mainPlugi
+    import mainPlugin
   
     title = iface.mainWindow().windowTitle()
     new_title = title.replace('QGIS', 'Gv3 Graphical Interface')
