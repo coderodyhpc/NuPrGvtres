@@ -1,39 +1,43 @@
-# NuPrGvtres 
+# GUI for Numerical Predictions on Graviton3 
 # Copyright (c) Odycloud.
 
-#!python
-#cython: language_level=3
 import sys
-sys.path.append('/opt/Odycloud/NumPre_Gv3')
-sys.path.append('/opt/Odycloud/NumPre_Gv3/plugin')
+import subprocess
+from qgis.core import QgsCoordinateReferenceSystem, QgsProject
+from PyQt5.QtGui import QIcon, QFont
+from PyQt5.QtWidgets import QToolBar, QPushButton
+sys.path.insert(1,'/opt/.Odycloud/Ody_NumPre')
+sys.path.insert(1,'/opt/.Odycloud/Ody_NumPre/GUI')
 
 def classFactory(iface):
     """Load QGISPlugin class.
     """
-###    from NumPre_Gv3.plugin.constants import PLUGIN_NAME
-###    from NumPre_Gv3.plugin.ui.helpers import WaitDialog
-    import mainPlugin
-  
+    from mainPlugin import QGISPlugin  
+    QgsProject.instance().title = 'MODELING'
+    titulus = QgsProject.instance().title() 
     title = iface.mainWindow().windowTitle()
     new_title = title.replace('QGIS', 'Gv3 Graphical Interface')
     iface.mainWindow().setWindowTitle(new_title)
+
+    odyicon = QIcon("/opt/.Odycloud/Ody_NumPre/GUI/mixed_logo5plb63.png")
+    iface.mainWindow().setWindowIcon(odyicon)
+    
+# menus    
     vector_menu = iface.vectorMenu()
     raster_menu = iface.rasterMenu()
-#    mesh_menu = iface.meshMenu()
     database_menu = iface.databaseMenu()
     web_menu = iface.webMenu()
-#    processing_menu = iface.processingMenu()
     menubar = vector_menu.parentWidget()
     menubar.removeAction(vector_menu.menuAction())
     menubar.removeAction(raster_menu.menuAction())
     menubar.removeAction(database_menu.menuAction())
-#    menubar.removeAction(mesh_menu.menuAction())
     menubar.removeAction(web_menu.menuAction())
-#    menubar.removeAction(processing_menu.menuAction())
-#    menubar.addAction(dummy_menu)
+    for w in iface.statusBarIface().children():
+        if w.__class__.__name__ == 'QWidget':
+            for c in w.children():
+                if c.__class__.__name__ == 'QgsFilterLineEdit':
+                    w.hide()
+                    break
     return QGISPlugin(iface)
-
-def dummy_menu():
-    pass
 
 
