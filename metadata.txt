@@ -1,6 +1,6 @@
 [general]
 name=NuPrGvtres
-version=0.0.1
+version=1.0.0
 author=Odycloud
 email=arturo@odyhpc.com
 description=GUI for Numerical Predictions on Graviton3
