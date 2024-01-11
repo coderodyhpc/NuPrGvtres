@@ -14,7 +14,7 @@ def classFactory(iface):
     """
     from mainPlugin import QGISPlugin  
     QgsProject.instance().title = 'MODELING'
-    titulus = QgsProject.instance().title() 
+#    titulus = QgsProject.instance().title() 
     title = iface.mainWindow().windowTitle()
     new_title = title.replace('QGIS', 'Gv3 Graphical Interface')
     iface.mainWindow().setWindowTitle(new_title)
